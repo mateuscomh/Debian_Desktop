@@ -9,7 +9,7 @@
   git_config:
     name: user.email
     scope: global
-    value: "{{ email }}"
+    value: "{{ useremail }}"
 
 - name: Set Git Editor to VIM
   git_config:
