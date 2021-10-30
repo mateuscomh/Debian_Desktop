@@ -3,13 +3,17 @@
   git_config:
     name: user.name
     scope: global
-    value: "{{ fullname }}"
+    value: "{{ gitusername }}"
+  become: true
+  become_user: "{{ username }}"
 
 - name: Set Git Credential Email
   git_config:
     name: user.email
     scope: global
     value: "{{ useremail }}"
+  become: true
+  become_user: "{{ username }}"
 
 - name: Set Git Editor to VIM
   git_config:

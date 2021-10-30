@@ -5,17 +5,21 @@
 - include: hostconfigs.yml
   tags: personal
 
-- include: updateapt.yml
+- include: apt_update.yml
   when: ansible_facts['distribution'] == 'Debian'
   tags: system
 
-- include: appsbase.yml
+- include: apt_base.yml
   when: ansible_facts['distribution'] == 'Debian'
   tags: system
 
 - include: git.yml
   tags: [ personal, git ]
 
-- include: vim.yml
+- include: vim_config.yml
   tags: [ personal, vim ]
+
+- include: i3_configs.yml
+  tags: [ system, personal ]
+
 

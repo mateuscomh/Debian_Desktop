@@ -1,0 +1,23 @@
+---
+- name:  Adding head on TODO list
+  ansible.builtin.lineinfile:
+    path: '/home/{{ username }}/.todo.txt'
+    create: yes
+    line: '{{ item }}'
+    state: present
+  loop:
+      - "####################"
+      - TO-DO List
+      - --------------------
+  become: true
+  become_user: '{{ username }}'
+  
+- name: Insert TODO function on .bashrc
+  copy:
+    src: .bashrc
+    dest: '/home/{{ username }}/.bashrc'
+    backup: yes
+  become: true
+  become_user: '{{ username }}'
+
+

@@ -1,0 +1,7 @@
+---
+- name: Cloning personal GIT configs
+  ansible.builtin.git:
+    repo: https://github.com/mateuscomh/CONFIGS.git
+    dest: '/home/{{ username }}/'
+  become: true
+  become_user: '{{ username }}'
