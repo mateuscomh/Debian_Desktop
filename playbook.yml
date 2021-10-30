@@ -1,0 +1,13 @@
+---
+- name: Preparing Debian
+  hosts: debian
+  roles:
+      - debian
+
+  vars:
+    dir: 'group_vars/'
+    hostname: salaamaleikum
+    username: django
+    email: 3mhenrique@gmail.com
+    fullname: Matheus Martins
+...

@@ -1,0 +1,30 @@
+---
+- name: Set Git Credential Name
+  git_config:
+    name: user.name
+    scope: global
+    value: "{{ fullname }}"
+
+- name: Set Git Credential Email
+  git_config:
+    name: user.email
+    scope: global
+    value: "{{ email }}"
+
+- name: Set Git Editor to VIM
+  git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- name: Creating folder to git clones
+  ansible.builtin.file:
+    path: '/scripts/{{ item }}/'
+    group: users
+    mode: '0776'
+    state: directory
+  loop:
+    - configs
+    - gitclones
+    - output
+  become: yes

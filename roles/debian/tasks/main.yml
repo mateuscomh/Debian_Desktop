@@ -1,0 +1,21 @@
+---
+- include: adduser.yml
+  tags: personal
+
+- include: hostconfigs.yml
+  tags: personal
+
+- include: updateapt.yml
+  when: ansible_facts['distribution'] == 'Debian'
+  tags: system
+
+- include: appsbase.yml
+  when: ansible_facts['distribution'] == 'Debian'
+  tags: system
+
+- include: git.yml
+  tags: [ personal, git ]
+
+- include: vim.yml
+  tags: [ personal, vim ]
+
