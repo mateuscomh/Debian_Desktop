@@ -6,7 +6,7 @@
     force: yes
   become: yes
 
-- name : Change file owner GIT.
+- name : Change file owner vimrc
   ansible.builtin.file:
     path: '/scripts/configs/{{ item }}'
     owner: "{{ username }}"
@@ -17,20 +17,30 @@
     - vimrc
   become: yes
 
+- name: Making symlink .vimrc
+  ansible.builtin.file:
+    src: '/scripts/configs/vimrc'
+    path: '/home/{{ username }}/.vimrc'
+    force: yes
+  become: true
+  become_user: '{{ username }}'
+
 - name: Folder Pluginstall
   ansible.builtin.file:
     path: '/home/{{ username }}/.vim/autoload'
     state: directory
+    recurse: yes
+    owner: '{{ username }}'
   become: yes
-
+  
 - name: Making symlink plugvim
   ansible.builtin.file:
     src: /scripts/configs/pluginstall
     dest: '/home/{{ username }}/.vim/autoload/plug.vim'
     state: link
     owner: '{{ username }}'
-    group: users
-  become: yes
+  become: true
+  become_user: '{{ username }}'
 
 - name: Installing Plugvim
   command: "vim +PlugInstall +qall"

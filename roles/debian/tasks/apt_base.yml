@@ -16,6 +16,7 @@
     - arc-theme #theme arc
     - breeze-cursor-theme
     - ttf-mscorefonts-installer
+    - fonts-powerline
     - thunar    #file browser
     - pcmanfm
     - zenity

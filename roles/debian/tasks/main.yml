@@ -1,25 +1,27 @@
 ---
-- include: adduser.yml
-  tags: personal
-
-- include: hostconfigs.yml
-  tags: personal
-
-- include: apt_update.yml
-  when: ansible_facts['distribution'] == 'Debian'
-  tags: system
-
-- include: apt_base.yml
-  when: ansible_facts['distribution'] == 'Debian'
-  tags: system
-
-- include: git.yml
-  tags: [ personal, git ]
-
-- include: vim_config.yml
-  tags: [ personal, vim ]
-
 - include: i3_configs.yml
-  tags: [ system, personal ]
-
+#- include: vim.yml
+  #- include: adduser.yml
+  #  tags: personal
+  #
+  #- include: hostconfigs.yml
+  #  tags: personal
+  #
+  #- include: apt_update.yml
+  #  when: ansible_facts['distribution'] == 'Debian'
+  #  tags: system
+  #
+  #- include: apt_base.yml
+  #  when: ansible_facts['distribution'] == 'Debian'
+  #  tags: system
+  #
+  #- include: git.yml
+  #  tags: [ personal, git ]
+  #
+  #- include: vim_config.yml
+  #  tags: [ personal, vim ]
+  #
+  #- include: i3_configs.yml
+  #  tags: [ system, personal ]
+  #
 
