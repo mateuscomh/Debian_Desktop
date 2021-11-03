@@ -22,6 +22,7 @@
     src: '/scripts/configs/vimrc'
     path: '/home/{{ username }}/.vimrc'
     force: yes
+    state: link
   become: true
   become_user: '{{ username }}'
 
