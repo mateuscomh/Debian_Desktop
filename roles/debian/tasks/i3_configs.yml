@@ -3,11 +3,22 @@
   debug:
     msg: Adicionar chave privada na conta github
 
-- name: Adding repo vimrc
+- name: Adding repo personal configs 
   git:
     repo: 'git@github.com:mateuscomh/CONFIGS.git' 
-    dest: /scripts/gitclones/
+    dest: '/home/{{ username }}/'
     force: yes
+    single_branch: yes
+    version: salaam
+  become: true
+  become_user: '{{ username }}'
+
+- name: Alterando i3config
+  copy:
+    src: '/home/{{ username }}/CONFIGS/i3/config'
+    dest: '/home/{{ username }}/.config/i3/'
+    owner: '{{ username}}'
+    mode: '0644'
   become: true
   become_user: '{{ username }}'
 
