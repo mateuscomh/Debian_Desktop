@@ -1,7 +1,7 @@
 ---
 #
-#- include: adduser.yml
-#  tags: personal
+- include: adduser.yml
+  tags: personal
 #
 #- include: apt_update.yml
 #  when: ansible_facts['distribution'] == 'Debian'

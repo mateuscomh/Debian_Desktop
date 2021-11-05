@@ -16,3 +16,11 @@
     ssh_key_file: .ssh/id_rsa
   become: yes
 
+- name: Register rsa_key.pub
+  shell: cat "/home/{{ username }}/.ssh/id_rsa.pub"
+  become: true
+  register: command_output
+  become_user: '{{ username }}'
+
+- debug:
+    var: command_output.stdout_lines
