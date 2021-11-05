@@ -43,7 +43,8 @@
   become: true
   become_user: '{{ username }}'
 
-- name: Installing Plugvim
-  command: "vim +PlugInstall +qall"
-  become: true
-  become_user: '{{ username }}'
+  #- name: Installing Plugvim
+  #  command: "vim +PlugInstall +qall &> /dev/null"
+  #  become: true
+  #  become_user: '{{ username }}'
+  #  ignore_errors: yes

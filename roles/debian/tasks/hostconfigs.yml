@@ -4,3 +4,23 @@
     name: "{{ hostname }}"
   become: yes
   tags: system
+
+- name: Linking bash configs
+  file:
+    path: '/home/{{ username }}/CONFIGS/Bash_Home/{{ item }}'
+    dest: '/home/{{ username }}/{{ item }}'
+    force: yes
+  loop:
+    - .bashrc
+  become: true
+  become_user: '{{ username }}'
+
+- name: editing crontab
+  ansible.builtin.lineinfile:
+    path: /etc/crontab
+    line: '{{ item }}'
+  loop:
+    - '*/15 * * * * root /scripts/i3scripts/ip.sh'
+    - '*/55 * * * * root /scripts/i3scripts/climai3.sh'
+    - '* * * * * root /usr/bin/vnstat -u'
+  become: true
