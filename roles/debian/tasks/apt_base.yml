@@ -9,6 +9,7 @@
     - i3lock
     - i3lock-fancy
     - sddm
+    - sddm-theme-breeze
     - xinit
     - i3-wm     #graphic interface
     - nitrogen

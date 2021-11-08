@@ -6,7 +6,7 @@
 - name: Add repo vimrc
   git:
     repo: 'git@github.com:mateuscomh/CONFIGS.git'
-    dest: '/home/{{ username}}/CONFIGS'
+    dest: '/home/{{ username }}/CONFIGS'
     force: yes
   become: true
   become_user: '{{ username }}'
