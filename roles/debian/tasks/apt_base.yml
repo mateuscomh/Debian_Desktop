@@ -1,5 +1,5 @@
 ---
-- name: Installing i3wm and base apps
+- name: Installing i3wm base apps
   apt:
     name: '{{ item }}'
     install_recommends: yes
@@ -8,6 +8,7 @@
     - i3
     - i3lock
     - i3lock-fancy
+    - sddm
     - xinit
     - i3-wm     #graphic interface
     - nitrogen
@@ -19,25 +20,21 @@
     - fonts-powerline
     - lm-sensors
     - thunar    #file browser
-    - pcmanfm
-    - zenity
     - volumeicon-alsa
     - compton   #Transparency and shadow interface
     - inxi      #system info
     - xdotool   #script interactive
     - wmctrl    #script interactive
     - neofetch  #system info 
-    - feh
-    - xautolock
+    - feh       #system wallpaper
+    - xautolock #system lockscreen
     - arandr    #wallpaper change
     - fzf       #script interactive
     - suckless-tools #dmenu system interface
     - rofi      #system interface
     - pavucontrol #sound control
     - pulseaudio-utils #sound control
-    - ranger
-    - imwheel
-    - rxvt
+    - imwheel     #scrollmouse
       # -xfce4 talvez****
   become: yes
 
@@ -54,14 +51,15 @@
     - xarchiver
     - nm-tray
     - network-manager
-    - tmux
     - vim
     - build-essential
     - git
     - lynx
     - curl
     - wget
-    - terminator
+    - ranger
+    - tilix
+    - tilix-common
   become: yes
 
 - name: Installing apps system manager
@@ -71,13 +69,15 @@
     state: present
   loop:
     - solaar
+    - pcmanfm
+    - zenity
     - wine64
     - blueman
     - telegram-desktop
     - aptitude
     - gparted
     - ncdu
-    - htop
+    - rxvt      #terminal
   become: yes
 
 - name: Installing ADM tools
@@ -87,6 +87,7 @@
     state: present
   loop:
     - nmap
+    - htop
     - tree
     - system-config-printer
     - flameshot
@@ -101,6 +102,7 @@
     state: present
   loop:
     - vlc
+    - transmission
     - firefox-esr
     - lxappearance
     - atril #pdf

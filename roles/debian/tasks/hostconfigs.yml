@@ -24,3 +24,37 @@
     - '*/55 * * * * root /scripts/i3scripts/climai3.sh'
     - '* * * * * root /usr/bin/vnstat -u'
   become: true
+
+- name: making dir theme sugar-candy
+  ansible.builtin.file:
+    path: '/usr/share/sddm/themes/sugar-candy'
+    state: directory
+  become: true
+
+- name: dir sddm sugar-candy
+  ansible.builtin.file:
+    path: '/usr/share/sddm/themes/sugar-candy/{{ item.path }}'
+    state: directory
+  with_filetree:
+    - "sddm/sugar-candy/"
+  when: item.state == 'directory'
+  loop_control:
+    label: "{{ item.path }}"
+  become: true
+
+- name: files sddm sugar-candy
+  copy:
+    src: "{{ item.src }}"
+    dest: '/usr/share/sddm/themes/sugar-candy/{{ item.path }}'
+  with_filetree:
+    - "sddm/sugar-candy/"
+  when: item.state == 'file'
+  loop_control:
+    label: "{{ item.path }}"
+  become: true
+
+- name: sddm.conf on etc
+  copy:
+    src: sddm/etc.sddm.conf
+    dest: /etc/sddm.conf
+  become: true
