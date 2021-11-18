@@ -36,6 +36,7 @@
     - pavucontrol #sound control
     - pulseaudio-utils #sound control
     - imwheel     #scrollmouse
+    - xfce4-appfinder
       # -xfce4 talvez****
   become: yes
 
