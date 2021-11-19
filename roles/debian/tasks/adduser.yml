@@ -11,16 +11,16 @@
     update_password: on_create
     generate_ssh_key: yes
     ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
     groups: users
     append: true
-    ssh_key_file: .ssh/id_rsa
   become: yes
 
-- name: Register rsa_key.pub
+- name: Print rsa_key.pub
   shell: cat "/home/{{ username }}/.ssh/id_rsa.pub"
-  become: true
   register: command_output
-  become_user: '{{ username }}'
+  become: yes
+  #  become_user: '{{ username }}'
 
 - debug:
     var: command_output.stdout_lines

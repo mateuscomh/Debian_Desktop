@@ -7,6 +7,7 @@
   git:
     repo: 'git@github.com:mateuscomh/CONFIGS.git'
     dest: '/home/{{ username }}/CONFIGS'
+    accept_hostkey: yes
     force: yes
   become: true
   become_user: '{{ username }}'
