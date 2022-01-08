@@ -34,8 +34,9 @@
     - suckless-tools #dmenu system interface
     - rofi      #system interface
     - pavucontrol #sound control
-    - pulseaudio-utils #sound control
+    - pulseaudio-utils #sound control   
     - imwheel     #scrollmouse
+    - xserver-xorg-input-libinput
     - xfce4-appfinder
       # -xfce4 talvez****
   become: yes
