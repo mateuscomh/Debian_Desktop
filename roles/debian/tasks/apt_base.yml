@@ -5,10 +5,11 @@
     install_recommends: yes
     state: present
   loop:
-    - i3
-    - i3lock
+    - i3        #i3 interface
+    - i3lock    #i3 lockscreen
     - i3lock-fancy
-    - sddm
+    - dunst     #i3 daemon notification
+    - sddm      
     - sddm-theme-breeze
     - xinit
     - i3-wm     #graphic interface
