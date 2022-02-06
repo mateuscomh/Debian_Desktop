@@ -7,18 +7,19 @@
   loop:
     - i3        #i3 interface
     - i3lock    #i3 lockscreen
+    - i3-wm     #graphic interface
     - i3lock-fancy
+    - i3blocks  
+    - i3status  #system bar info
     - dunst     #i3 daemon notification
     - sddm
-    - i3blocks
     - xbacklight
     - notify-osd
+    - notify-send
     - psensor
     - sddm-theme-breeze
     - xinit
-    - i3-wm     #graphic interface
     - nitrogen
-    - i3status  #system bar info
     - yad       #Popup shell menu
     - arc-theme #theme arc
     - breeze-cursor-theme
@@ -75,15 +76,15 @@
     install_recommends: yes
     state: present
   loop:
-    - solaar
+    - solaar    
     - pcmanfm
     - zenity
     - wine64
-    - blueman
+    - blueman   #bluetooth
     - telegram-desktop
     - aptitude
-    - gparted
-    - ncdu
+    - gparted   #GUI disk management
+    - ncdu      #disk usage management
     - rxvt      #terminal
   become: yes
 
@@ -121,10 +122,8 @@
     - gimp
     - transmission
     - mpg123
-    - wine64
     - playerctl
     - telegram-desktop
-    - moc
     - mpg321
     - sxiv #visualizar imagens
   become: yes
