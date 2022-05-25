@@ -37,12 +37,14 @@
 
 - name: Set default permission i3 script folder
   ansible.builtin.file:
-    path: /scripts
+    path: /scripts/
     state: directory
     recurse: yes
     owner: '{{ username }}'
     group: users
     mode: '0640'
+  become: true
+  become_user: '{{ username }}'
 
 - name: Configuring i3 status bar
   file:
