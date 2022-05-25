@@ -59,8 +59,8 @@
   become: true
   become_user: '{{ username }}'
 
--name: Create folder Output
- ansible.builtin.file:
+- name: Create folder Output
+  ansible.builtin.file:
     path: /scripts/Output
     state: directory
     mode: '0755'
