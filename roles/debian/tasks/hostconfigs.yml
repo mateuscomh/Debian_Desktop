@@ -2,10 +2,10 @@
 - name: Set hostname
   hostname:
     name: "{{ hostname }}"
-  become: yes
+  become: true
   tags: system
 
--name: Removing default home files
+- name: Removing default home files
   file:
     path: '/home/{{ username }}/{{ item }}'
     state: absent

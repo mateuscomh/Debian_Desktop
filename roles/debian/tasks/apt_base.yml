@@ -44,7 +44,7 @@
     - imwheel     #scrollmouse
     - xserver-xorg-input-libinput
     - xfce4-appfinder
-  become: yes
+  become: true
 
 - name: Installing Linux Essentials packages
   apt:
@@ -68,7 +68,7 @@
     - ranger
     - tilix
     - tilix-common
-  become: yes
+  become: true
 
 - name: Installing apps system manager
   apt:
@@ -86,7 +86,7 @@
     - gparted   #GUI disk management
     - ncdu      #disk usage management
     - rxvt      #terminal
-  become: yes
+  become: true
 
 - name: Installing ADM tools
   apt:
@@ -102,7 +102,7 @@
     - flameshot
     - font-manager
     - mtr
-  become: yes
+  become: true
 
 - name: Installing additional packages
   apt:
@@ -126,5 +126,5 @@
     - telegram-desktop
     - mpg321
     - sxiv #visualizar imagens
-  become: yes
+  become: true
 ...

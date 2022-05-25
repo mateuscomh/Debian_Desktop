@@ -14,12 +14,12 @@
     ssh_key_file: .ssh/id_rsa
     groups: users
     append: true
-  become: yes
+  become: true
 
 - name: Print rsa_key.pub
   shell: cat "/home/{{ username }}/.ssh/id_rsa.pub"
   register: command_output
-  become: yes
+  become: true
   #  become_user: '{{ username }}'
 
 - debug:

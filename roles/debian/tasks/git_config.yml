@@ -32,4 +32,4 @@
     - configs
     - gitclones
     - output
-  become: yes
+  become: true
