@@ -5,6 +5,19 @@
   become: yes
   tags: system
 
+-name: Removing default home files
+  file:
+    path: '/home/{{ username }}/{{ item }}'
+    state: absent
+    force: yes
+  loop:
+    - .bashrc
+    - .profile
+    - .bash_aliases
+    - .bash_logout
+  become: true
+  become_user: '{{ username }}'
+
 - name: Linking bash configs
   file:
     path: '/home/{{ username }}/CONFIGS/Bash_Home/{{ item }}'
@@ -12,6 +25,9 @@
     force: yes
   loop:
     - .bashrc
+    - .profile
+    - .bash_aliases
+    - .bash_logout
   become: true
   become_user: '{{ username }}'
 

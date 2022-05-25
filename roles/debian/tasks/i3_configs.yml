@@ -35,6 +35,15 @@
     owner: '{{ username }}'
   become: true
 
+- name: Set default permission i3 script folder
+  ansible.builtin.file:
+    path: /scripts
+    state: directory
+    recurse: yes
+    owner: '{{ username }}'
+    group: users
+    mode: '0640'
+
 - name: Configuring i3 status bar
   file:
     src: '/home/{{ username}}/CONFIGS/i3/scripts/{{ item }}'
@@ -47,6 +56,14 @@
     - i3custom.sh
     - ip.sh
     - brilho.sh
+  become: true
+  become_user: '{{ username }}'
+
+-name: Create folder Output
+  ansible.builtin.file:
+    path: /scripts/Output
+    state: directory
+    mode: '0755'
   become: true
   become_user: '{{ username }}'
 
