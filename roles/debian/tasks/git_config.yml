@@ -31,5 +31,5 @@
   loop:
     - configs
     - gitclones
-    - output
+    - Output
   become: yes

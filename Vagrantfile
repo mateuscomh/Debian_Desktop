@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "deb" do |deb|
-    deb.vm.network "private_network", ip: "172.17.177.41"
+    #deb.vm.network "private_network", ip: "172.17.177.41"
     deb.vm.network "forwarded_port", guest:22, host:2221
   end
   
