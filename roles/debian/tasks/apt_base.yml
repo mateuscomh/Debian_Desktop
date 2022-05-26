@@ -15,7 +15,7 @@
     - sddm
     - xbacklight
     - notify-osd
-    - notify-send
+    #- notify-send
     - psensor
     - sddm-theme-breeze
     - xinit
@@ -81,7 +81,6 @@
     - zenity
     - wine64
     - blueman   #bluetooth
-    - telegram-desktop
     - aptitude
     - gparted   #GUI disk management
     - ncdu      #disk usage management
@@ -123,7 +122,6 @@
     - transmission
     - mpg123
     - playerctl
-    - telegram-desktop
     - mpg321
     - sxiv #visualizar imagens
   become: yes
