@@ -1,0 +1,38 @@
+---
+
+- hosts: local
+  become: yes
+  roles:
+  - { role: add-repo, tags: add_repo }
+  - { role: add-user, tags: add_user}
+  - { role: conf-all, tags: conf_all }
+  - { role: reboot-system, tags: reboot_system }
+  - { role: update-upgrade-app, tags: update_upgrade_app }
+  - { role: dist-upgrade, tags: dist_upgrade }
+
+- include: adduser.yml
+  tags: personal
+
+- include: apt_update.yml
+  when: ansible_facts['distribution'] == 'Debian'
+  tags: system
+
+- include: apt_base.yml
+  when: ansible_facts['distribution'] == 'Debian'
+  tags: system
+
+- include: git_config.yml
+  tags: [ personal, git ]
+
+- include: vim_plugins.yml
+  tags: [ personal,vim ]
+
+- include: urxvt_configs.yml
+  tags: personal
+
+- include: i3_configs.yml
+  tags: [ system, personal ]
+
+- include: hostconfigs.yml
+  tags: personal
+
