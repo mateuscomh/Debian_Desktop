@@ -1,5 +1,16 @@
+[local]
+localhost ansible_connection=local
+
+[localL:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user = "{{ ansible_user }}"
+ansible_password = "{{ ansible_password }}"
+ansible_become_password = "{{ ansible_become_password }}"
+
+[debian]
+#172.17.177.41 ansible_user=vagrant ansible_ssh_private_key_file="/gitclones/Debian_Desktop/.vagrant/machines/deb/virtualbox/private_key"
+192.168.122.86 ansible_user=root
+
 [debian:vars]
 ansible_python_interpreter=/usr/bin/python3
 
-[debian]
-172.17.177.41 ansible_user=vagrant ansible_ssh_private_key_file="/gitclones/Debian_Desktop/.vagrant/machines/deb/virtualbox/private_key"

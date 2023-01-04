@@ -15,7 +15,6 @@
     - sddm
     - xbacklight
     - notify-osd
-    - notify-send
     - psensor
     - sddm-theme-breeze
     - xinit
