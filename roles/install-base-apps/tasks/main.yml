@@ -1,0 +1,4 @@
+---
+# tasks file for install-base-apps
+- name: (main) Install base applications Debian
+  include_tasks: install-base-apps.yml
