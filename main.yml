@@ -2,8 +2,8 @@
 - hosts: debian
   become: yes
   roles:
-#  - { role: add-repo, tags: add_repo }
-  - { role: add-users, tags: add_users }
+  - { role: add-repo, tags: add_repo }
+#  - { role: add-users, tags: add_users }
 #  - { role: conf-all, tags: conf_all }
 #  - { role: reboot-system, tags: reboot_system }
 #  - { role: update-upgrade-app, tags: update_upgrade_app }
