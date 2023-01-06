@@ -6,7 +6,7 @@
       replace: '\1 contrib non-free'
     when: ansible_facts['distribution'] == 'Debian'
 
-  - name: Check configu dpkg
+  - name: Check config dpkg
     command: dpkg --configure -a
 
   - name: Update/Upgrade Debian
