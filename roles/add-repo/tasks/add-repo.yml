@@ -1,21 +1,17 @@
 ---
-- name: Add contrib repository
-  replace:
-    dest: /etc/apt/sources.list
-    regexp: '^(deb.+)(?<! non-free)$'
-    replace: '\1 contrib non-free'
-  become: true
-  when: ansible_facts['distribution'] == 'Debian'
+  - name: Add contrib repository
+    replace:
+      dest: /etc/apt/sources.list
+      regexp: '^(deb.+)(?<! non-free)$'
+      replace: '\1 contrib non-free'
+    when: ansible_facts['distribution'] == 'Debian'
 
-- name: Check configu dpkg
-  command: dpkg --configure -a
+  - name: Check configu dpkg
+    command: dpkg --configure -a
 
-- name: Update/Upgrade Debian
-  apt:
-    name: "*"
-    state: latest
-    update_cache: yes
-  become: true
-  when: ansible_facts['distribution'] == 'Debian'
-
-...
+  - name: Update/Upgrade Debian
+    apt:
+      name: "*"
+      state: latest
+      update_cache: yes
+    when: ansible_facts['distribution'] == 'Debian'

@@ -3,6 +3,7 @@
   ansible.builtin.group:
     name:  users
     state: present
+  become: yes
 
 - name: Add user
   user:
@@ -13,13 +14,20 @@
     ssh_key_bits: 2048
     ssh_key_file: .ssh/id_rsa
     groups: users
-    append: true
-  become: true
+    append: yes
+  become: yes
+
+- name: Add users in a sudores
+  user:
+    name: "{{ username }}"
+    groups: sudo
+    append: yes
+  with_items: "{{ username }}"
+  become: yes
 
 - name: Print rsa_key.pub
   shell: cat "/home/{{ username }}/.ssh/id_rsa.pub"
   register: command_output
-  become: true
 
 - debug:
     var: command_output.stdout_lines
