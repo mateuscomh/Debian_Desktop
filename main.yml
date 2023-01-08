@@ -5,14 +5,10 @@
   roles:
     - { role: add-users, tags: add_users }
     - { role: add-repo, tags: add_repo }
-#    - { role: install-base-apps, tags: base_apps }
+    - { role: install-base-apps, tags: base_apps }
     - { role: to-do, tags: to_do }
     - { role: git-config, tags: git_config }
 
-#  - { role: conf-all, tags: conf_all }
-#  - { role: reboot-system, tags: reboot_system }
-#  - { role: update-upgrade-app, tags: update_upgrade_app }
-#  - { role: dist-upgrade, tags: dist_upgrade }
 #- include: adduser.yml
 #  tags: personal
 #

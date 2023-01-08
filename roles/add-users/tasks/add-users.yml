@@ -31,3 +31,7 @@
 
 - debug:
     var: command_output.stdout_lines
+
+- name: Info to add pubkey on github
+  debug:
+    msg: Adicionar chave privada na conta github

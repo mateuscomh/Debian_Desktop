@@ -1,8 +1,8 @@
 ---
-- name: Installing i3wm base apps
-  apt:
+- name: "Installing i3wm base apps"
+  ansible.builtin.package:
     name: '{{ item }}'
-    install_recommends: yes
+    install_recommends: true
     state: present
   loop:
     - i3        #i3 interface
