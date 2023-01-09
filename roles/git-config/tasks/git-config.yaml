@@ -1,0 +1,44 @@
+---
+- name: Set Git Credential Name
+  git_config:
+    name: user.name
+    scope: global
+    value: "{{ gitusername }}"
+  become: true
+  become_user: "{{ username }}"
+
+- name: Set Git Credential Email
+  git_config:
+    name: user.email
+    scope: global
+    value: "{{ useremail }}"
+  become: true
+  become_user: "{{ username }}"
+
+- name: Set Git Editor to VIM
+  git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- name: Creating folder to git clones
+  ansible.builtin.file:
+    path: '/scripts/{{ item }}/'
+    group: users
+    owner: "{{ username }}"
+    mode: '0555'
+    state: directory
+  loop:
+    - configs
+    - gitclones
+    - output
+  become: true
+
+- name: Add repo vimrc
+  git:
+    repo: 'git@github.com:mateuscomh/dotfiles.git'
+    dest: '/scripts/gitclones/'
+    accept_hostkey: yes
+    force: yes
+  become: true
+  become_user: '{{ username }}'

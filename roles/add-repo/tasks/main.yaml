@@ -1,0 +1,4 @@
+---
+# tasks file for roles/add-repo
+- name: (main)Adding a repo and update
+  include_tasks: add-repo.yaml

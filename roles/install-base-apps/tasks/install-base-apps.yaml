@@ -1,0 +1,131 @@
+---
+- name: "Installing i3wm base apps"
+  ansible.builtin.package:
+    name: '{{ item }}'
+    install_recommends: true
+    state: present
+  loop:
+    - i3        #i3 interface
+    - i3lock    #i3 lockscreen
+    - i3-wm     #graphic interface
+    - i3lock-fancy
+    - i3blocks  
+    - i3status  #system bar info
+    - dunst     #i3 daemon notification
+    - sddm
+    - xbacklight
+    - notify-osd
+    - libnotify4
+    - libnotify-bin
+    - psensor
+    - sddm-theme-breeze
+    - xinit
+    - nitrogen
+    - yad       #Popup shell menu
+    - arc-theme #theme arc
+    - breeze-cursor-theme
+    - ttf-mscorefonts-installer
+    - fonts-powerline
+    - lm-sensors
+    - volumeicon-alsa
+    - compton   #Transparency and shadow interface
+    - inxi      #system info
+    - xdotool   #script interactive
+    - wmctrl    #script interactive
+    - neofetch  #system info 
+    - feh       #system wallpaper
+    - xautolock #system lockscreen
+    - arandr    #wallpaper change
+    - fzf       #script interactive
+    - suckless-tools #dmenu system interface
+    - rofi      #system interface
+    - pavucontrol #sound control
+    - pulseaudio-utils #sound control   
+    - imwheel     #scrollmouse
+    - xserver-xorg-input-libinput
+    - xfce4-appfinder
+  become: true
+
+- name: Installing Linux Essentials packages
+  apt:
+    name: '{{ item }}'
+    install_recommends: yes
+    state: present
+  loop:
+    - rar
+    - vnstat
+    - unrar
+    - p7zip-full
+    - xarchiver
+    - nm-tray
+    - network-manager
+    - vim
+    - build-essential
+    - git
+    - lynx
+    - curl
+    - wget
+    - ranger
+    - tilix
+    - tilix-common
+  become: true
+
+- name: Installing apps system manager
+  apt:
+    name: '{{ item }}'
+    install_recommends: yes
+    state: present
+  loop:
+    - solaar    
+    - thunar    #file browser
+    - pcmanfm
+    - zenity
+    - wine64
+    - blueman   #bluetooth
+    - telegram-desktop
+    - aptitude
+    - gparted   #GUI disk management
+    - ncdu      #disk usage management
+    - rxvt      #terminal
+  become: true
+
+- name: Installing ADM tools
+  apt:
+    name: '{{ item }}'
+    install_recommends: yes
+    state: present
+  loop:
+    - nmap
+    - stress
+    - htop
+    - tree
+    - system-config-printer
+    - flameshot
+    - font-manager
+    - mtr
+  become: true
+
+- name: Installing additional packages
+  apt:
+    name: '{{ item }}'
+    install_recommends: yes
+    state: present
+  loop:
+    - vlc
+    - transmission
+    - firefox-esr
+    - lxappearance
+    - atril #pdf
+    - newsboat
+    - poppler-utils #tools pdf
+    - font-manager
+    - gnome-calculator
+    - gimp
+    - transmission
+    - mpg123
+    - playerctl
+    - telegram-desktop
+    - mpg321
+    - sxiv #visualizar imagens
+  become: true
+...
