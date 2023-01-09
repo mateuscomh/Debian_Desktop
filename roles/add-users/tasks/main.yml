@@ -1,4 +1,0 @@
----
-# tasks file for add-users
-- name: (main) Adicionando usuarios
-  include_tasks: add-users.yml
