@@ -15,6 +15,7 @@ Para usar esse projeto, altere as configurações de acordo com seu cenário e n
 
 
 *adicionar descrição posterior das tasks e roles *
+ansible-playbook -i main.yml
 
 
 ## Licença

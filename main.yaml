@@ -3,7 +3,7 @@
   become: yes
 
   roles:
-    - { role: add-users, tags: add_users }
+#    - { role: add-users, tags: add_users }
     - { role: add-repo, tags: add_repo }
     - { role: install-base-apps, tags: base_apps }
     - { role: to-do, tags: to_do }
