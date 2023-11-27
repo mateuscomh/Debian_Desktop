@@ -114,6 +114,7 @@
     - vlc
     - transmission
     - firefox-esr
+    - ttf-ancient-fonts-symbola 
     - lxappearance
     - atril #pdf
 #    - newsboat
